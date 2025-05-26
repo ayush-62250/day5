@@ -166,39 +166,86 @@
         <button onclick="document.getElementById('payment').scrollIntoView({ behavior: 'smooth' })" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700">Pay Now</button>
       </div>
     </section>
-
     <section id="payment" class="mt-20">
       <h2 class="text-3xl font-bold mb-6 text-center">Payment</h2>
       <p class="text-center mb-6">Total Amount: ₹<span id="paymentTotal">0.00</span></p>
       <div class="max-w-md mx-auto space-y-4">
         <div>
           <label class="font-medium">Select Payment Method</label>
-          <div class="mt-2 space-y-2">
-            <label><input type="radio" name="payment-method" value="card" checked> Credit/Debit Card</label><br>
-            <label><input type="radio" name="payment-method" value="upi"> Net Banking/UPI</label><br>
-            <label><input type="radio" name="payment-method" value="cod"> Cash on Delivery (COD)</label>
-          </div>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="payment-method" value="card" checked> Credit/Debit Card</label><br>
+          <label><input type="radio" name="payment-method" value="upi"> Net Banking/UPI</label><br>
+          <label><input type="radio" name="payment-method" value="cod"> Cash on Delivery (COD)</label>
         </div>
+      </div>
 
-        <div id="card-payment" class="space-y-2">
-          <input type="text" placeholder="Card Number" class="w-full p-2 border rounded">
-          <input type="text" placeholder="Expiry Date" class="w-full p-2 border rounded">
-          <input type="text" placeholder="CVV" class="w-full p-2 border rounded">
-          <button onclick="alert('Payment processed successfully!')" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Pay Now</button>
+      <!-- Card Payment -->
+      <div id="card-payment" class="space-y-2">
+        <input type="text" placeholder="Card Number" class="w-full p-2 border rounded">
+        <input type="text" placeholder="Expiry Date" class="w-full p-2 border rounded">
+        <input type="text" placeholder="CVV" class="w-full p-2 border rounded">
+        <button onclick="alert('Payment processed successfully!')" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Pay Now</button>
+      </div>
+
+     <!-- UPI Payment -->
+      <div id="upi-payment" class="space-y-2 hidden">
+        <input type="text" placeholder="yourname@upi" class="w-full p-2 border rounded">
+        <button onclick="alert('Payment processed successfully!')" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Pay Now</button>
+      </div>
+
+     <!-- COD Payment -->
+      <div id="cod-payment" class="space-y-4 hidden">
+        <p>Cash on Delivery selected. Confirm your order below.</p>
+        <div class="text-sm space-y-1">
+         <p><strong>Order Placed Date:</strong> <span id="orderDate"></span></p>
+          <p><strong>Expected Delivery Date:</strong> <span id="deliveryDate"></span></p>
+          <p><strong>Payment Status:</strong> Unpaid</p>
         </div>
-
-        <div id="upi-payment" class="space-y-2 hidden">
-          <input type="text" placeholder="yourname@upi" class="w-full p-2 border rounded">
-          <button onclick="alert('Payment processed successfully!')" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Pay Now</button>
-        </div>
-
-        <div id="cod-payment" class="space-y-4 hidden">
-          <p>Cash on Delivery selected. Confirm your order below.</p>
-          <button onclick="confirmOrder()" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Confirm Order</button>
+        <button onclick="confirmOrder()" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 w-full">Confirm Order</button>
         </div>
       </div>
     </section>
 
+    <script>
+      const paymentRadios = document.querySelectorAll('input[name="payment-method"]');
+      const cardSection = document.getElementById('card-payment');
+     const upiSection = document.getElementById('upi-payment');
+      const codSection = document.getElementById('cod-payment');
+      const orderDate = document.getElementById('orderDate');
+      const deliveryDate = document.getElementById('deliveryDate');
+
+    function showSection(method) {
+      cardSection.classList.add('hidden');
+      upiSection.classList.add('hidden');
+      codSection.classList.add('hidden');
+
+     if (method === 'card') {
+      cardSection.classList.remove('hidden');
+    } else if (method === 'upi') {
+        upiSection.classList.remove('hidden');
+      } else if (method === 'cod') {
+       codSection.classList.remove('hidden');
+        const now = new Date();
+        orderDate.textContent = now.toLocaleDateString();
+        const delivery = new Date(now);
+        delivery.setDate(now.getDate() + 5); // delivery in 5 days
+       deliveryDate.textContent = delivery.toLocaleDateString();
+      }
+    }
+
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        showSection(e.target.value);
+     });
+    });
+
+   function confirmOrder() {
+      alert("Order confirmed! It will be delivered by " + deliveryDate.textContent);
+    }
+
+    // Initial setup
+    showSection(document.querySelector('input[name="payment-method"]:checked').value);
+    </script>
 
   </main>
 
