@@ -316,30 +316,31 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-6xl mx-auto px-6 py-12 mt-6">
-    <section class="text-center mb-16 animate-fade-in">
-      <img src="ayush1.jpg" alt="Ayush Patil" class="w-32 h-32 mx-auto rounded-full object-cover shadow-xl hover-lift transition-all duration-300 border-4 border-white dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-900">
-      <h2 class="text-5xl font-bold mt-8 mb-4 page-title font-display">My Favorite Books</h2>
-      <p class="text-gray-600 dark:text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed font-sans">Books that shaped my thinking and mindset, carefully curated to inspire and enlighten.</p>
-    </section>
+<!-- Main Content -->
+<main class="max-w-6xl mx-auto px-6 py-12 mt-6">
+  <section class="text-center mb-16 animate-fade-in">
+    <img src="ayush1.jpg" alt="Ayush Patil" class="w-32 h-32 mx-auto rounded-full object-cover shadow-xl hover-lift transition-all duration-300 border-4 border-white dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-900">
+    <h2 class="text-5xl font-bold mt-8 mb-4 page-title font-display">My Favorite Books</h2>
+    <p class="text-gray-600 dark:text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed font-sans">Books that shaped my thinking and mindset, carefully curated to inspire and enlighten.</p>
+  </section>
 
-    <!-- Search and Filter Section -->
-    <div class="search-container animate-fade-in">
-      <input type="text" placeholder="Search books..." class="search-input" id="bookSearch">
-      <i data-lucide="search" class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-    </div>
+  <!-- Search and Filter Section -->
+  <div class="search-container animate-fade-in">
+    <input type="text" placeholder="Search books..." class="search-input" id="bookSearch">
+    <i data-lucide="search" class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+  </div>
 
-    <div class="filter-pills animate-fade-in">
-      <button class="filter-pill active" data-category="all">All Books</button>
-      <button class="filter-pill" data-category="Productivity">Productivity</button>
-      <button class="filter-pill" data-category="Psychology">Psychology</button>
-      <button class="filter-pill" data-category="Technology">Technology</button>
-      <button class="filter-pill" data-category="Business">Business</button>
-      <button class="filter-pill" data-category="Innovation">Innovation</button>
-    </div>
+  <div class="filter-pills animate-fade-in">
+    <button class="filter-pill active" data-category="all">All Books</button>
+    <button class="filter-pill" data-category="Productivity">Productivity</button>
+    <button class="filter-pill" data-category="Psychology">Psychology</button>
+    <button class="filter-pill" data-category="Technology">Technology</button>
+    <button class="filter-pill" data-category="Business">Business</button>
+    <button class="filter-pill" data-category="Innovation">Innovation</button>
+  </div>
 
-    <section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+  <section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    <a href="https://amzn.in/d/8SAxIji" class="block">
       <div class="book-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" style="animation-delay: 0.1s" data-category="Productivity">
         <span class="book-category">Productivity</span>
         <span class="book-status status-completed">Completed</span>
@@ -354,7 +355,9 @@
           <i data-lucide="star" class="w-4 h-4"></i>
         </div>
       </div>
+    </a>
 
+    <a href="https://amzn.in/d/fH9r1va" class="block">
       <div class="book-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" style="animation-delay: 0.2s" data-category="Psychology">
         <span class="book-category">Psychology</span>
         <span class="book-status status-reading">Currently Reading</span>
@@ -369,7 +372,9 @@
           <i data-lucide="star" class="w-4 h-4 fill-current"></i>
         </div>
       </div>
+    </a>
 
+    <a href="https://amzn.in/d/8JUCHkt" class="block">
       <div class="book-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" style="animation-delay: 0.3s" data-category="Technology">
         <span class="book-category">Technology</span>
         <span class="book-status status-completed">Completed</span>
@@ -384,7 +389,9 @@
           <i data-lucide="star" class="w-4 h-4 fill-current"></i>
         </div>
       </div>
+    </a>
 
+    <a href="https://amzn.in/d/9YHvPud" class="block">
       <div class="book-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" style="animation-delay: 0.4s" data-category="Business">
         <span class="book-category">Business</span>
         <span class="book-status status-wishlist">Want to Read</span>
@@ -399,7 +406,9 @@
           <i data-lucide="star" class="w-4 h-4"></i>
         </div>
       </div>
+    </a>
 
+    <a href="https://amzn.in/d/gLdeJJV" class="block">
       <div class="book-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300" style="animation-delay: 0.5s" data-category="Innovation">
         <span class="book-category">Innovation</span>
         <span class="book-status status-completed">Completed</span>
@@ -414,8 +423,9 @@
           <i data-lucide="star" class="w-4 h-4 fill-current"></i>
         </div>
       </div>
-    </section>
-  </main>
+    </a>
+  </section>
+</main>
 
   <!-- Footer with Social Links -->
   <footer class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-center py-10 border-t dark:border-gray-700 mt-20">
